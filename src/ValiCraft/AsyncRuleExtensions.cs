@@ -969,7 +969,6 @@ public static class AsyncRuleExtensions
    [MapToValidationRule(typeof(Rules), nameof(Rules.NotNull))]
    public static IAsyncValidationRuleBuilderType<TRequest, TTargetType> IsNotNull<TRequest, TTargetType>(
       this IAsyncBuilderType<TRequest, TTargetType> builder)
-      where TRequest : notnull
    {
       return builder.Is(Rules.NotNull);
    }
