@@ -10,13 +10,12 @@
     <ItemGroup>
         <PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
         <PackageReference Include="FluentValidation" Version="12.1.1" />
+        <PackageReference Include="Native.FluentValidation" Version="1.0.1" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\ValiCraft\ValiCraft.csproj" />
-        <ProjectReference Include="..\..\src\ValiCraft.Generator\ValiCraft.Generator.csproj"
-                          OutputItemType="Analyzer"
-                          ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\..\src\ValiCraft.Generator\ValiCraft.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
 </Project>

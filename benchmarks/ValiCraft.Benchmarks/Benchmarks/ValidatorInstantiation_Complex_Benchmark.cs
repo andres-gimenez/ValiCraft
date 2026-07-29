@@ -25,4 +25,10 @@ public class ValidatorInstantiation_Complex_Benchmark
     {
         return new FluentComplexModelValidator();
     }
+
+    [Benchmark]
+    public object? NativeFluentValidation()
+    {
+        return new NativeFluentComplexModelValidator();
+    }
 }

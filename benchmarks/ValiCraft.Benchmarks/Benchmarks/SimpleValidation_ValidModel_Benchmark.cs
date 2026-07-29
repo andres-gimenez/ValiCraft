@@ -12,6 +12,7 @@ public class SimpleValidation_ValidModel_Benchmark
     private ValiCraftSimpleModelValidator _valiCraftValidator = null!;
     private ValiCraftSimpleModelValidator_WithMetaData _valiCraftValidatorWithMetaData = null!;
     private FluentSimpleModelValidator _fluentValidator = null!;
+    private NativeFluentSimpleModelValidator _nativeFluentValidator = null!;
     private SimpleModel _validModel = null!;
 
     [GlobalSetup]
@@ -20,6 +21,7 @@ public class SimpleValidation_ValidModel_Benchmark
         _valiCraftValidator = new ValiCraftSimpleModelValidator();
         _valiCraftValidatorWithMetaData = new ValiCraftSimpleModelValidator_WithMetaData();
         _fluentValidator = new FluentSimpleModelValidator();
+        _nativeFluentValidator = new NativeFluentSimpleModelValidator();
 
         _validModel = new SimpleModel
         {
@@ -45,5 +47,11 @@ public class SimpleValidation_ValidModel_Benchmark
     public object? FluentValidation()
     {
         return _fluentValidator.Validate(_validModel);
+    }
+
+    [Benchmark]
+    public object? NativeFluentValidation()
+    {
+        return _nativeFluentValidator.Validate(_validModel);
     }
 }

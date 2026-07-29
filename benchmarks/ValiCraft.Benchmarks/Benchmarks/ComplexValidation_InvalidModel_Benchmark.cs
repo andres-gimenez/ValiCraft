@@ -12,6 +12,7 @@ public class ComplexValidation_InvalidModel_Benchmark
     private ValiCraftComplexModelValidator _valiCraftValidator = null!;
     private ValiCraftComplexModelValidator_WithMetaData _valiCraftValidatorWithMetaData = null!;
     private FluentComplexModelValidator _fluentValidator = null!;
+    private NativeFluentComplexModelValidator _nativeFluentValidator = null!;
     private ComplexModel _invalidModel = null!;
 
     [GlobalSetup]
@@ -20,6 +21,7 @@ public class ComplexValidation_InvalidModel_Benchmark
         _valiCraftValidator = new ValiCraftComplexModelValidator();
         _valiCraftValidatorWithMetaData = new ValiCraftComplexModelValidator_WithMetaData();
         _fluentValidator = new FluentComplexModelValidator();
+        _nativeFluentValidator = new NativeFluentComplexModelValidator();
 
         _invalidModel = new ComplexModel
         {
@@ -52,5 +54,11 @@ public class ComplexValidation_InvalidModel_Benchmark
     public object? FluentValidation()
     {
         return _fluentValidator.Validate(_invalidModel);
+    }
+
+    [Benchmark]
+    public object? NativeFluentValidation()
+    {
+        return _nativeFluentValidator.Validate(_invalidModel);
     }
 }

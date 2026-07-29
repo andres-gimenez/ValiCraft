@@ -25,4 +25,10 @@ public class ValidatorInstantiation_Simple_Benchmark
     {
         return new FluentSimpleModelValidator();
     }
+
+    [Benchmark]
+    public object? NativeFluentValidation()
+    {
+        return new NativeFluentSimpleModelValidator();
+    }
 }

@@ -23,7 +23,7 @@ class Program
                 typeof(CollectionValidation_SmallCollection_Benchmark),
                 typeof(CollectionValidation_LargeCollection_Benchmark),
                 typeof(ValidatorInstantiation_Simple_Benchmark),
-                typeof(ValidatorInstantiation_Complex_Benchmark)
+                typeof(ValidatorInstantiation_Complex_Benchmark),
             };
             
             // 3. Run them together with the joined summary config

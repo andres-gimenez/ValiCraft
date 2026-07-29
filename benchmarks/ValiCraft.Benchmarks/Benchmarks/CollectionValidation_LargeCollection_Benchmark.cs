@@ -12,6 +12,7 @@ public class CollectionValidation_LargeCollection_Benchmark
     private ValiCraftCollectionModelValidator _valiCraftValidator = null!;
     private ValiCraftCollectionModelValidator_WithMetaData _valiCraftValidatorWithMetaData = null!;
     private FluentCollectionModelValidator _fluentValidator = null!;
+    private NativeFluentCollectionModelValidator _nativeFluentValidator = null!;
     private CollectionModel _largeCollectionModel = null!;
 
     [GlobalSetup]
@@ -20,6 +21,7 @@ public class CollectionValidation_LargeCollection_Benchmark
         _valiCraftValidator = new ValiCraftCollectionModelValidator();
         _valiCraftValidatorWithMetaData = new ValiCraftCollectionModelValidator_WithMetaData();
         _fluentValidator = new FluentCollectionModelValidator();
+        _nativeFluentValidator = new NativeFluentCollectionModelValidator();
 
         _largeCollectionModel = new CollectionModel
         {
@@ -45,5 +47,11 @@ public class CollectionValidation_LargeCollection_Benchmark
     public object? FluentValidation()
     {
         return _fluentValidator.Validate(_largeCollectionModel);
+    }
+
+    [Benchmark]
+    public object? NativeFluentValidation()
+    {
+        return _nativeFluentValidator.Validate(_largeCollectionModel);
     }
 }
