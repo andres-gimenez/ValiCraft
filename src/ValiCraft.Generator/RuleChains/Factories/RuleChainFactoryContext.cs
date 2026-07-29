@@ -15,5 +15,4 @@ public record RuleChainFactoryContext(
     int Depth,
     IndentModel Indent,
     List<DiagnosticInfo> Diagnostics,
-    GeneratorAttributeSyntaxContext GeneratorContext,
-    bool IsCollection);
+    GeneratorAttributeSyntaxContext GeneratorContext);

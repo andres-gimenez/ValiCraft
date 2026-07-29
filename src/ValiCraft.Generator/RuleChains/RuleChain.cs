@@ -115,7 +115,7 @@ public abstract record RuleChain(RuleChainConfig Config)
             : context.CreateContinueContext();
     }
 
-    internal static ValidationTarget CreateItemTarget(
+    protected static ValidationTarget CreateItemTarget(
         Concepts.TypeInfo elementType,
         ValidationTarget collectionTarget)
     {
@@ -125,18 +125,6 @@ public abstract record RuleChain(RuleChainConfig Config)
             Type: elementType,
             DefaultTargetName: collectionTarget.DefaultTargetName,
             TargetPath: collectionTarget.TargetPath);
-    }
-
-    internal static ValidationTarget CreateComposedItemTarget(
-        Concepts.TypeInfo elementType,
-        ValidationTarget collectionTarget)
-    {
-        return new ValidationTarget(
-            AccessorType: AccessorType.Object,
-            AccessorExpressionFormat: "{0}",
-            Type: elementType,
-            DefaultTargetName: collectionTarget.DefaultTargetName,
-            TargetPath: new Concepts.MessageInfo("", true));
     }
 
     protected static List<string> GenerateRulesCode(

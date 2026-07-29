@@ -157,7 +157,7 @@ public record PolymorphicRuleChain(
         RuleChainContext context)
     {
         var callTarget = (branch.IsStaticValidator ? branch.StaticValidatorTypeName : branch.ValidatorExpression)!;
-        var methodCall = BuildValidatorMethodCall(Config.IsAsync, branch.IsAsyncValidatorCall, callTarget, typedVarName, context.TargetPath.TrimEnd('.'));
+        var methodCall = BuildValidatorMethodCall(Config.IsAsync, branch.IsAsyncValidatorCall, callTarget, typedVarName, Config.Target!.TargetPath.Value);
 
         return GenerateValidatorCallCode(childIndent, methodCall, context) + "\r\n";
     }
